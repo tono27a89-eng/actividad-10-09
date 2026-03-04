@@ -20,7 +20,7 @@ namespace actividad_10__09
             {
                 Console.WriteLine($"Ingrese  nombre NO.{i + 1} de {lim}");
                 nombre= Console.ReadLine();
-                if (estudiante.ContainsKey(nombre))
+                if (notas.ContainsKey(nombre))
                 {
                     Console.WriteLine("nombre ya ingresado");
                     i--;
@@ -28,34 +28,19 @@ namespace actividad_10__09
                 }
                 else
                 {
-                    Console.WriteLine("ingrese nombre:");
-                    nombre = Console.ReadLine();
-                    estudiante.Add(Id, nombre);
+                    Console.WriteLine("ingrese nota:");
+                    double.TryParse(Console.ReadLine(), out notas1);
+                    notas.Add(nombre, notas1);
 
                 }
+               
 
             }
-            bool validar = false;
-            while (validar != true)
+            Console.WriteLine("ingrese nombre de nota que desea ver");
+            nombre = Console.ReadLine();
+            if (notas.ContainsKey(nombre))
             {
-
-
-                Console.WriteLine("ingrese ID de estudiante que desea elimar");
-                int.TryParse(Console.ReadLine(), out Id);
-                if (estudiante.ContainsKey(Id))
-                {
-                    estudiante.Remove(Id);
-                    validar = true;
-                }
-                else
-                {
-                    Console.WriteLine("ID invalido");
-                }
-            }
-            foreach (var item in estudiante)
-            {
-                Console.WriteLine("prodcuto Id: " + item.Key + "valor: " + item.Value);
-
+                Console.WriteLine("la nota es" + notas[nombre]);
             }
 
         }
