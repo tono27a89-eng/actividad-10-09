@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace actividad_10__09
 {
@@ -36,11 +37,20 @@ namespace actividad_10__09
                
 
             }
-            Console.WriteLine("ingrese nombre de nota que desea ver");
-            nombre = Console.ReadLine();
-            if (notas.ContainsKey(nombre))
+            bool validar = false;
+            while (validar != true)
             {
-                Console.WriteLine("la nota es" + notas[nombre]);
+                Console.WriteLine("ingrese nombre de nota que desea ver");
+                nombre = Console.ReadLine();
+                if (notas.ContainsKey(nombre))
+                {
+                    Console.WriteLine("la nota es" + notas[nombre]);
+                    validar = true;
+                }
+                else
+                {
+                    Console.WriteLine("ingrese nombre valido");
+                }
             }
 
         }
